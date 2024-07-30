@@ -1,12 +1,14 @@
 package robo;
-
 import exceptions.MovimentoInvalidoException;
+import exceptions.PosicaoInvalidaException;
 
 public class Robo {
     protected int posiX;
     protected int posiY;
     protected String cor;
     protected int movimento;
+    private int posiAlimentoX;// posicao x do alimento
+    private int posiAlimentoY;// posicao y do alimento
 
     // construtor
     public Robo(String cor) {
@@ -14,6 +16,8 @@ public class Robo {
         this.posiY = 0;
         this.cor = cor;
         this.movimento = 0;
+       this.posiAlimentoX = -1;// para evitar que o robo não encontre na primeira verificacao
+        this.posiAlimentoY = -1;
     }
 
     // gt e stt
@@ -71,7 +75,7 @@ public class Robo {
             default:
                 throw new MovimentoInvalidoException(direcao);
         }
-        System.out.println("Posicao do robo: (" + posiX + ", " + posiY + ")");
+        System.out.println(" A posicao do robo eh: (" + posiX + ", " + posiY + ")");
     }
 
     // sobrecarrega o metodo mover com inteiro
@@ -93,4 +97,37 @@ public class Robo {
                 throw new MovimentoInvalidoException("direcao invalida: " + direcao);
         }
     }
+
+   /* //define a posicao do alimento
+    public void definirPosicaoAlimento(int posiAlimentoX, int poisAlimentoY) throws PosicaoInvalidaException {
+        if (posiAlimentoX < 0 || posiAlimentoY < 0) {
+            throw new PosicaoInvalidaException("A posição do alimento nao pode ser negativa: (" + posiAlimentoX + ", " + posiAlimentoY + ")");
+        }
+        this.posiAlimentoX = posiAlimentoX;
+        this.posiAlimentoY = posiAlimentoY;
+    }
+
+    // Método para verificar se o robô encontrou o alimento
+    public boolean encontrouAlimento() {
+        if (this.posiAlimentoX == -1 || this.posiAlimentoY == -1) {
+            // A posição do alimento não foi definida
+            return false;
+        }
+        return this.posiX == this.posiAlimentoX && this.posiY == posiAlimentoY;
+    }*/
+
+    public void definirPosicaoAlimento(int posiAlimentoX, int alimentoY) {
+        this.posiAlimentoX = posiAlimentoX;
+        this.posiAlimentoY = posiAlimentoY;
+    }
+
+    // Método para verificar se o robô encontrou o alimento
+    public boolean encontrouAlimento() {
+        return this.posiX == this.posiAlimentoX && this.posiY == this.posiAlimentoY;
+    }
+
+
 }
+
+
+
