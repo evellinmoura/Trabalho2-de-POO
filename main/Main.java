@@ -20,13 +20,13 @@ public class Main {
                     throw new IllegalArgumentException("A posição do alimento não pode ser negativa.");
                 }
                 robo.definirPosicaoAlimento(posiAlimentoX, posiAlimentoY);
-                break; // Sai do loop se a posição for válida
+                break; // sai do loop se a posição for válida
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
 
-        scanner.nextLine(); // Consumir a nova linha
+        scanner.nextLine(); // consume a nova linha
 
         // vai continuar para o usuário mover o robô até achar o alimento
         while (!robo.encontrouAlimento()) {
