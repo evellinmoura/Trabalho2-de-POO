@@ -1,6 +1,5 @@
 package robo;
 import exceptions.MovimentoInvalidoException;
-import exceptions.PosicaoInvalidaException;
 
 public class Robo {
     protected int posiX;
@@ -16,7 +15,7 @@ public class Robo {
         this.posiY = 0;
         this.cor = cor;
         this.movimento = 0;
-       this.posiAlimentoX = -1;// para evitar que o robo não encontre na primeira verificacao
+        this.posiAlimentoX = -1;// para evitar que o robo não encontre na primeira verificacao
         this.posiAlimentoY = -1;
     }
 
@@ -116,14 +115,16 @@ public class Robo {
         return this.posiX == this.posiAlimentoX && this.posiY == posiAlimentoY;
     }*/
 
-    public void definirPosicaoAlimento(int posiAlimentoX, int alimentoY) {
+    public void definirPosicaoAlimento(int posiAlimentoX, int posiAlimentoY) {
         this.posiAlimentoX = posiAlimentoX;
         this.posiAlimentoY = posiAlimentoY;
+        System.out.println("Posição do alimento definida: (" + posiAlimentoX + ", " + posiAlimentoY + ")");
     }
 
     // Método para verificar se o robô encontrou o alimento
     public boolean encontrouAlimento() {
         return this.posiX == this.posiAlimentoX && this.posiY == this.posiAlimentoY;
+
     }
 
 

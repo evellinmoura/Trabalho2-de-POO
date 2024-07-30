@@ -1,11 +1,11 @@
 package main;
 
-import exceptions.MovimentoInvalidoException;
-import robo.Robo;
 import java.util.Scanner;
+import robo.Robo;
+import exceptions.MovimentoInvalidoException;
 
 public class Main {
-    public static void main(String[] args) throws MovimentoInvalidoException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Robo robo = new Robo("Vermelho");
 
@@ -26,16 +26,16 @@ public class Main {
             }
         }
 
-        scanner.nextLine(); // consume a nova linha
+        scanner.nextLine(); // Consumir a nova linha
 
-        // vai continuar para o usuário mover o robô até achar o alimento
+        // Continuar pedindo ao usuário para mover o robô até encontrar o alimento
         while (!robo.encontrouAlimento()) {
-            System.out.print("Digite a direção para mover o robô -> up (cima) || -> down (baixo) || -> right (direita) || ->left (esquerda): ");
-            String direcao = scanner.nextLine().trim().toLowerCase();
-            if (direcao.equals("up") || direcao.equals("down") || direcao.equals("right") || direcao.equals("left")) {
+            try {
+                System.out.print("Digite a direção para mover o robô (up, down, right, left): ");
+                String direcao = scanner.nextLine().trim().toLowerCase();
                 robo.mover(direcao);
-            } else {
-                System.out.println("Direção inválida. Tente novamente.");
+            } catch (MovimentoInvalidoException e) {
+                System.out.println(e.getMessage());
             }
         }
 
