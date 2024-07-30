@@ -4,10 +4,17 @@ import java.util.Scanner;
 import robo.Robo;
 import exceptions.MovimentoInvalidoException;
 
+    
 public class Main {
+    //deixa colorido
+    private static final String resetColor = "\033[0m";
+    // private static final String greenColor = "\033[32m";
+    // private static final String blueColor = "\033[34m";
+    private static final String redColor = "\033[31m";
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Robo robo = new Robo("Vermelho");
+
 
         while (true) {
             try {
@@ -31,7 +38,7 @@ public class Main {
         // Continuar pedindo ao usuário para mover o robô até encontrar o alimento
         while (!robo.encontrouAlimento()) {
             try {
-                System.out.print("Digite a direção para mover o robô (up, down, right, left): ");
+                System.out.print("Digite a direção para mover o " + robo.getNome() + redColor + robo.getCor()+ resetColor+"(up, down, right, left): ");
                 String direcao = scanner.nextLine().trim().toLowerCase();
                 robo.mover(direcao);
             } catch (MovimentoInvalidoException e) {

@@ -5,6 +5,7 @@ public class Robo {
     protected int posiX;
     protected int posiY;
     protected String cor;
+    protected String nome;
     protected int movimento;
     private int posiAlimentoX;// posicao x do alimento
     private int posiAlimentoY;// posicao y do alimento
@@ -14,43 +15,14 @@ public class Robo {
         this.posiX = 0;
         this.posiY = 0;
         this.cor = cor;
+        this.nome = "Robô Normal ";
         this.movimento = 0;
         this.posiAlimentoX = -1;// para evitar que o robo não encontre na primeira verificacao
         this.posiAlimentoY = -1;
     }
 
     // gt e stt
-    public int getPosiX() {
-        return posiX;
-    }
-
-    public void setPosiX(int posiX) {
-        this.posiX = posiX;
-    }
-
-    public int getPosiY() {
-        return posiY;
-    }
-
-    public void setPosiY(int posiY) {
-        this.posiY = posiY;
-    }
-
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
-
-    public double getMovimento() {
-        return movimento;
-    }
-
-    public void setMovimento(int movimento) {
-        this.movimento = movimento;
-    }
+    
 
     // metodo mover com a string
     public void mover(String direcao) throws MovimentoInvalidoException {// recebe a direcao e pode disparar uma exceção 
@@ -74,7 +46,7 @@ public class Robo {
             default:
                 throw new MovimentoInvalidoException(direcao);
         }
-        System.out.println(" A posicao do robo eh: (" + posiX + ", " + posiY + ")");
+        System.out.println(" A posicao do "+this.getNome()+ this.getCor()+" é ( " + posiX + ", " + posiY + ")");
     }
 
     // sobrecarrega o metodo mover com inteiro
@@ -125,6 +97,60 @@ public class Robo {
     public boolean encontrouAlimento() {
         return this.posiX == this.posiAlimentoX && this.posiY == this.posiAlimentoY;
 
+    }
+
+    public int getPosiX() {
+        return posiX;
+    }
+    public void setPosiX(int posiX) {
+        this.posiX = posiX;
+    }
+
+
+    public int getPosiY() {
+        return posiY;
+    }
+    public void setPosiY(int posiY) {
+        this.posiY = posiY;
+    }
+
+
+    public String getCor() {
+        return cor;
+    }
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public double getMovimento() {
+        return movimento;
+    }
+    public void setMovimento(int movimento) {
+        this.movimento = movimento;
+    }
+
+
+    public int getPosiAlimentoX() {
+        return posiAlimentoX;
+    }
+    public void setPosiAlimentoX(int posiAlimentoX) {
+        this.posiAlimentoX = posiAlimentoX;
+    }
+
+    
+    public int getPosiAlimentoY() {
+        return posiAlimentoY;
+    }
+    public void setPosiAlimentoY(int posiAlimentoY) {
+        this.posiAlimentoY = posiAlimentoY;
     }
 
 
