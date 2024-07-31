@@ -44,7 +44,7 @@ public class Main2 {
                     throw new IllegalArgumentException("A posição do alimento deve estar entre 0 e 3.");
                 }
                 robo1.definirPosicaoAlimento(posiAlimentoX, posiAlimentoY);
-                robo2.definirPosicaoAlimento(posiAlimentoX, posiAlimentoY);
+                
                 matriz[posiAlimentoY][posiAlimentoX] = 'A'; // Define o alimento na matriz
                 break; // sai do loop se a posição for válida
             } catch (IllegalArgumentException e) {

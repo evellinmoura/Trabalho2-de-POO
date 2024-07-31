@@ -12,11 +12,17 @@ encontre o alimento ou ambos explodam. Ao final, mostre o número de movimentos 
 cada robô fez para encontrar o alimento ou até explodir. */
 public abstract class Obstaculos {
     private int id;
+   
+
 
     public Obstaculos(int id){
         setId(id);
     }
     public abstract void bater(Robo robo);
+
+    public void PosiObs(){
+
+    }
     
     public int getId() {
         return id;

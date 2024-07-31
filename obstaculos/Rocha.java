@@ -11,7 +11,8 @@ faça os dois robôs se moverem randomicamente, um de cada vez, até que um dele
 encontre o alimento ou ambos explodam. Ao final, mostre o número de movimentos que
 cada robô fez para encontrar o alimento ou até explodir. */
 public class Rocha extends Obstaculos {
-    
+    private int posiAntX;
+    private int posiAntY;
     public Rocha(int id){
         super(id);
     }
@@ -19,7 +20,37 @@ public class Rocha extends Obstaculos {
     
     @Override
     public void bater(Robo robo){
-        //RETORNAR ANTERIOR
+        robo.setPosiX(posiAntX);
+        robo.setPosiY(posiAntY);
+        System.out.println("O " + robo.getNome() + robo.getCor() + "bateu na rocha! retornou à posição anterior.");
     }
+
+    public void posiAnterior(int x, int y){
+        this.setPosiAntX(x);
+        this.setPosiAntY(y);
+    }
+
+    public int getPosiAntX() {
+        return posiAntX;
+    }
+
+
+    public void setPosiAntX(int posiAntX) {
+        this.posiAntX = posiAntX;
+    }
+
+
+    public int getPosiAntY() {
+        return posiAntY;
+    }
+
+
+    public void setPosiAntY(int posiAntY) {
+        this.posiAntY = posiAntY;
+    }
+
     
 }
+
+    
+
